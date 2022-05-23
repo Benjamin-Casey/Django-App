@@ -1,0 +1,24 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'sleep/bootstrap.min.css' %}">
+
+{% comment %} TODO: move this page to login.html {% endcomment %}
+
+<body>
+    <div class="container">
+        {% block content %}
+        <div class="container py-5 text-center">
+            <h2>Login</h2>
+            <br>
+            <form method="post">
+                {% csrf_token %}
+                {{ from.as_p }}
+                <button type="submit">Log in</button>
+            </form>
+        </div>
+        {% endblock %}
+    </div>
+</body>
+
+
+{% comment %} https://learndjango.com/tutorials/django-login-and-logout-tutorial {% endcomment %}
+{% comment %} https://stackoverflow.com/questions/54495922/django-form-as-p-not-showing-up-in-rendered-template {% endcomment %}

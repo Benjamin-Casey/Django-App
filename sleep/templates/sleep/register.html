@@ -1,0 +1,36 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'sleep/bootstrap.min.css' %}">
+
+<body>
+    <div class="container">
+        <div class="container py-5 text-center">
+            <h2>Create Account</h2>
+            <br>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="w-50 text-center container">
+                    
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" id="formUsername" class="form-control" placeholder="Username"/>
+                        {% comment %} <label class="form-label" for="form2Example1">Email address</label> {% endcomment %}
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <input type="password" id="formPassword" class="form-control" placeholder="Password"/>
+                        {% comment %} <label class="form-label" for="form2Example2">Password</label> {% endcomment %}
+                    </div>
+
+                    {% comment %} Password confirmation {% endcomment %}
+                    <div class="form-outline mb-4">
+                        <input type="password" id="formPasswordConfirmation" class="form-control" placeholder="Password confirmation"/>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                </div> 
+                
+            </form>
+        </div>
+    </div>
+</body>

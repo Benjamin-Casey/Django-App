@@ -1,0 +1,6 @@
+{% comment %} TODO: Make this extend base {% endcomment %}
+<h1>This is group info {{ group_data.name }}</h1>
+<h2>Alarms:</h2>
+{% for alarm in group_data.alarms.all %}
+    <p>Alarm name: {{alarm.name}}</p>
+{% endfor %}

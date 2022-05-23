@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+    Hi, {{ user.username }}
+    <p><a href="{% url 'logout' %}">Log Out</a></p>
+    
+    <h3>Groups</h3>
+    <p>List of groups below</p>
+
+    {% if user.groups.all %}
+        <ul>
+        {% for user_group in user.groups.all %}
+            <li><a href="{% url 'group_info' group_name=user_group.name %}">{{ user_group.name }}</a></li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+{% else %}
+    <div class="container">
+        <p>You are not logged in!</p>
+        <a href="{% url 'login' %}">Log In</a>
+    </div>
+    
+    <div class="container">
+        <p>Or <a href="{% url 'signup' %}">register</a></p>
+    </div>
+{% endif %}
+{% endblock  %}
